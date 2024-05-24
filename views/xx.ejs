@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox</title>
+    <link rel="stylesheet" href="/xx.css">
+    <link rel="stylesheet" href="/src/output.css">
+    <title>Messagebox</title>
+
+</head>
+
+<body>
+    <div class="mainbody">
+        <!-- Chat box -->
+        <div class="inbpx">
+            <div class="navbar">
+
+                <div class="login">INBOX</div>
+
+            </div>
+            <div class="inbox relative">
+                <!-- display inbox in xxinboxx.ejs -->
+                <%- include('xxinbox') %>
+                    <form id="search" class="text-black absolute  bottom-2  flex flex-wrap w-3/4 justify-evenly"
+                        action="http://localhost:3000/username/messagebox/search" method="post">
+                        <input id="input" type="text" name="search" placeholder="search user...."
+                            class=" rounded-lg p-px ">
+                        <button id="bt" type="submit" class=" bg-fuchsia-600  rounded-lg font-medium text-search box-border "> <svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg></button>
+                    </form>
+            </div>
+
+        </div>
+        <!-- Chat area -->
+        <div class="ch">
+            <div class="navbar">
+                <!-- <div class="logo">A</div> -->
+                <div class="username">
+                    <%= receiver%>
+                </div>
+
+            </div>
+            <div class="contain">
+                <%- include('xxchathistory') %>
+            </div>
+            <div class="write">
+                <label for="messaging"></label>
+                <textarea type="text" placeholder="new message..." id="messaging"></textarea>
+                <!-- <input type="file"  name="file" class="files" placeholder="attach"/> -->
+                <div class="sndbtn">send</div>
+            </div>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+    <script src="/websocketclient.js"></script>
+    <script>
+        let sre = document.querySelector("#input")
+        let sr = document.querySelector("#search")
+        let bt = document.querySelector("#bt")
+        let f = window.location.href
+        let que = new URLSearchParams(window.location.search)
+
+        if (que.get('q')) {
+            
+
+            bt.addEventListener("click", (data) => {
+                // data.preventDefault();
+                que.delete('q')
+                f = f.replace(window.location.search, "")
+                sr.action = `${f}/search`
+            })
+        }
+        else {
+
+            sr.action = `${f}/search`
+        }
+    </script>
+
+</body>
+
+</html>

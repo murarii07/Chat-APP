@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/output.css">
+    <title>Register</title>
+    <style>
+        /* Bordered form */
+        form {
+            border: 3px solid #f1f1f1;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Full-width inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid white;
+            box-sizing: border-box;
+            
+        }
+
+        /* Set a style for the signup button */
+        button {
+            background-color: rgb(197, 8, 197);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            user-select: none;
+        }
+
+        /* Add a hover effect for buttons */
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Add some spacing to the container */
+        .container {
+            padding: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container flex flex-col ">
+
+        <h1 class="font-bold self-center text-2xl">Register</h1>
+        <form class="bg-fuchsia-100" action="http://localhost:3000/home/signup" method="post">
+            <label for="names"class="font-bold " >Name</label>
+            <input class="rounded-lg "  type="text" name="names"><br>
+            <label for="uname" class="font-bold">Username</label>
+            
+            <input class="rounded-lg " type="text" name="uname" required><br>
+            <label for="psw"class="font-bold" >Password</label>
+            <input class="rounded-lg " type="password" name="psw" required><br>
+            
+            <button type="submit"  class="rounded-lg font-bold">Create</button>
+            <div   class="font-bold text-red-500">
+                <%= render %>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

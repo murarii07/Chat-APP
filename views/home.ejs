@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/output.css" rel="stylesheet">
+    <style>
+        * {
+            transition-property: all;
+            transition-duration: 0.1s;
+            transition-timing-function: ease-in;
+            transition-delay: 0ms;
+        }
+
+        div::-webkit-scrollbar {
+            display: none;
+        }
+
+        #textflow {
+            display: none;
+        }
+
+        /* we use select-none class (tailwind) */
+        a {
+            user-select: none;
+        }
+    </style>
+    <title>HOME</title>
+</head>
+
+<body>
+    <nav
+        class="bg-purple-500 md:bg-fuchsia-600  flex   justify-center items-center  rounded-lg h-14  box-border my-0.5 mx-2  relative">
+        <ul class=" flex  w-4/5  justify-between ">
+            <li class=" text-white font-bold  cursor-pointer  md:text-xl  hover:scale-125 select-none">profile </li>
+            <li class=" text-white  font-bold   cursor-pointer  md:text-xl hover:scale-125 select-none"> <a class="ma"
+                    href="http://localhost:3000/home/mess" target="_blank">messagebox</a></li>
+
+          
+            <li class="login text-white md:text-xl font-bold   cursor-pointer hover:scale-125 select-none">
+                <a class="aa  select-none" href="http://localhost:3000/home/login">
+                    <%= render %>
+                </a>
+
+            </li>
+        </ul>
+        <div id="textflow"
+            class="size-48 border-y-2   border-x-2 
+                    border-red-600 overflow-y-scroll flex  flex-col justify-between absolute top-14 right-1 bg-orange-50 ">
+            <div class="mx-2 my-2 text-black"> Lorem ipsum </div>
+            <form action="http://localhost:3000/home/logout" method="post">
+
+                <button type="submit"
+                    class="logout border-x-2 border-y-2  w-36 h-10 rounded-lg bg-pink-500 text-white  mx-2 my-2">
+                    logOut</button>
+            </form>
+        </div>
+    </nav>
+    <div class="ttt mx-4 border-x-2 border-y-2 ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, sequi quia? Iure cumque ad mollitia illo
+        assumenda, ducimus corporis, ipsa, nostrum saepe explicabo ipsam quod illum quisquam sint cupiditate expedita
+        architecto aut. Alias, libero.
+    </div>
+    <div class="ttt mx-4 border-x-2 border-y-2 ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, sequi quia? Iure cumque ad mollitia illo
+        assumenda, ducimus corporis, ipsa, nostrum saepe explicabo ipsam quod illum quisquam sint cupiditate expedita
+        architecto aut. Alias, libero.
+    </div>
+    <div class="ttt mx-4 border-x-2 border-y-2 ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, sequi quia? Iure cumque ad mollitia illo
+        assumenda, ducimus corporis, ipsa, nostrum saepe explicabo ipsam quod illum quisquam sint cupiditate expedita
+        architecto aut. Alias, libero.
+    </div>
+    <div class="ttt mx-4 border-x-2 border-y-2 ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, sequi quia? Iure cumque ad mollitia illo
+        assumenda, ducimus corporis, ipsa, nostrum saepe explicabo ipsam quod illum quisquam sint cupiditate expedita
+        architecto aut. Alias, libero.
+    </div>
+    <div class="ttt mx-4 border-x-2 border-y-2 ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, sequi quia? Iure cumque ad mollitia illo
+        assumenda, ducimus corporis, ipsa, nostrum saepe explicabo ipsam quod illum quisquam sint cupiditate expedita
+        architecto aut. Alias, libero.
+    </div>
+    <div class="ttt mx-4 border-x-2 border-y-2 ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, sequi quia? Iure cumque ad mollitia illo
+        assumenda, ducimus corporis, ipsa, nostrum saepe explicabo ipsam quod illum quisquam sint cupiditate expedita
+        architecto aut. Alias, libero.
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="50" height="50">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      
+      
+
+
+    <script>
+        let l = document.querySelector(".login");
+        let tx = document.querySelector("#textflow");
+        let ch = document.querySelector(".aa")
+        let ltoggle = false;
+        let chm = document.querySelector(".ma")
+        let s=document.querySelector(".search")
+        let f = window.location.href;
+
+
+        if (!(l.innerText == "login")) {
+            
+            chm.href = `${f}/messagebox`
+            console.log(chm)
+            l.innerText = ch.innerText
+            l.addEventListener("click", () => {
+
+                if (!ltoggle) {
+
+                    tx.style.display = "flex";
+                    ltoggle = true;
+                }
+                else {
+                    tx.style.display = "none";
+                    ltoggle = false;
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
